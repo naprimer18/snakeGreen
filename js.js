@@ -1,16 +1,16 @@
 var rand = function (min, max) {k = Math.floor(Math.random() * (max - min) + min); return (Math.round( k / s) * s);}
 var count = 0; 
 var flag = "false";
-var createApple = function () {a = [rand(20, innerWidth-50),rand(20, innerHeight-50)]; }, 
-    createSnake = function () {sBody = [{x: 20,y: 35}];}
+var createApple = function () {a = [rand(20, 150),rand(20, 150)]; }, 
+    createSnake = function () {sBody = [{x: 20,y: 35},{x: 10,y: 35},{x: 0,y: 35}];}
 var gP = document.getElementById('gP'), 
     g = gP.getContext('2d');
     sBody = 0;
     d = 1, 
     a = null, 
-    s = 20; createSnake(); createApple(); 
-gP.width = innerWidth; 
-gP.height = innerHeight;
+    s = 10; createSnake(); createApple(); 
+gP.width = s*20; 
+gP.height = s*20;
 setInterval(function() {
     
     if (a[0] + s >= gP.width || a[1] + s >= gP.height) createApple(); 
@@ -48,7 +48,7 @@ setInterval(function() {
         
         // s - это ширина и высота нашего "квадрата"
     });
-}, 100);
+}, 150);
 
 onkeydown = function (e) {
     var k = e.keyCode;
